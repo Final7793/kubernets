@@ -10,7 +10,7 @@ spec:
           - containerPort: 80
         volumeMounts:
           - name: shared-vol
-            mountpath: "var/log/nginx"          
+            mountPath: "var/log/nginx"          
     volumes:
       - name: shared-vol
         emptyDir: {}
