@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+    name: my-Pod
+spec:
+   containers:
+      - name: my-ngnix
+        image: nginx:latest
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - name: shared-vol
+            mountpath: "var/log/nginx"          
+    volumes:
+      - name: shared-vol
+        emptyDir: {}
