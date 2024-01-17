@@ -1,18 +1,17 @@
-iVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
-    name: nginx-emptydir
+  name: hostpath-volume
 spec:
   containers:
-  - name: nginx
-    image: nginx:1.14.2
+  - name: ip-app
+    image: harshajain/ip_app:2
     ports:
-       - containerPort: 80
-     volumeMounts:
+    - containerPort: 80
+    volumeMounts:
     - name: pvc-vol
       mountPath: /app/pvc-volume
   volumes: 
   - name: pvc-vol
     persistentVolumeClaim:
         claimName: my-pvc
-    
